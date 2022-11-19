@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PvPController">
+   <children>
+      <Button layoutX="600.0" layoutY="150.0" mnemonicParsing="false" onAction="#restart" text="Restart">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="603.0" layoutY="220.0" mnemonicParsing="false" onAction="#menu" text="Menu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="609.0" layoutY="290.0" mnemonicParsing="false" onAction="#quit" text="Quit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Text fx:id="text" layoutX="100.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ok, maby next time.">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="75.0" layoutY="100.0" onMouseClicked="#onMouseClicked11" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="225.0" layoutY="100.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="375.0" layoutY="100.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="75.0" layoutY="250.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="225.0" layoutY="250.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="375.0" layoutY="250.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="375.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="225.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="75.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+      <Circle fx:id="circle11" fill="WHITE" layoutX="150.0" layoutY="175.0" onMouseClicked="#onMouseClicked11" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle12" fill="WHITE" layoutX="300.0" layoutY="175.0" onMouseClicked="#onMouseClicked12" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle13" fill="WHITE" layoutX="450.0" layoutY="175.0" onMouseClicked="#onMouseClicked13" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle21" fill="WHITE" layoutX="150.0" layoutY="325.0" onMouseClicked="#onMouseClicked21" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle22" fill="WHITE" layoutX="300.0" layoutY="325.0" onMouseClicked="#onMouseClicked22" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle23" fill="WHITE" layoutX="450.0" layoutY="325.0" onMouseClicked="#onMouseClicked23" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle31" fill="WHITE" layoutX="150.0" layoutY="475.0" onMouseClicked="#onMouseClicked31" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle32" fill="WHITE" layoutX="300.0" layoutY="475.0" onMouseClicked="#onMouseClicked32" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+      <Circle fx:id="circle33" fill="WHITE" layoutX="450.0" layoutY="475.0" onMouseClicked="#onMouseClicked33" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
+
+      <Line fx:id="cross111" endX="100.0" endY="100.0" layoutX="100.0" layoutY="125.0" onMouseClicked="#onMouseClicked11" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross112" endX="100.0" endY="100.0" layoutX="100.0" layoutY="125.0" onMouseClicked="#onMouseClicked11" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross121" endX="110.0" endY="110.0" layoutX="250.0" layoutY="125.0" onMouseClicked="#onMouseClicked12" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross122" endX="110.0" endY="110.0" layoutX="250.0" layoutY="125.0" onMouseClicked="#onMouseClicked12" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross131" endX="110.0" endY="110.0" layoutX="400.0" layoutY="125.0" onMouseDragged="#onMouseClicked13" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross132" endX="110.0" endY="110.0" layoutX="400.0" layoutY="125.0" onMouseClicked="#onMouseClicked13" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross211" endX="110.0" endY="110.0" layoutX="100.0" layoutY="275.0" onMouseClicked="#onMouseClicked21" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross212" endX="110.0" endY="110.0" layoutX="100.0" layoutY="275.0" onMouseClicked="#onMouseClicked21" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross221" endX="110.0" endY="110.0" layoutX="250.0" layoutY="275.0" onMouseClicked="#onMouseClicked22" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross222" endX="110.0" endY="110.0" layoutX="250.0" layoutY="275.0" onMouseClicked="#onMouseClicked22" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross231" endX="110.0" endY="110.0" layoutX="400.0" layoutY="275.0" onMouseClicked="#onMouseClicked23" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross232" endX="110.0" endY="110.0" layoutX="400.0" layoutY="275.0" onMouseClicked="#onMouseClicked23" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross311" endX="110.0" endY="110.0" layoutX="100.0" layoutY="425.0" onMouseClicked="#onMouseClicked31" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross312" endX="110.0" endY="110.0" layoutX="100.0" layoutY="425.0" onMouseClicked="#onMouseClicked31" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross321" endX="110.0" endY="110.0" layoutX="250.0" layoutY="425.0" onMouseClicked="#onMouseClicked32" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross322" endX="110.0" endY="110.0" layoutX="250.0" layoutY="425.0" onMouseClicked="#onMouseClicked32" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+      <Line fx:id="cross331" endX="110.0" endY="110.0" layoutX="400.0" layoutY="425.0" onMouseClicked="#onMouseClicked33" opacity="0.0" rotate="90.0" stroke="#3007ff" strokeWidth="10.0" />
+      <Line fx:id="cross332" endX="110.0" endY="110.0" layoutX="400.0" layoutY="425.0" onMouseClicked="#onMouseClicked33" opacity="0.0" stroke="#3007ff" strokeWidth="10.0" />
+
+   </children>
+</Pane>
