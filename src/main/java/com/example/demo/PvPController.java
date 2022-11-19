@@ -11,6 +11,7 @@ import javafx.scene.shape.Shape;
 import javafx.stage.StageStyle;
 
 import java.util.*;
+import java.util.List;
 
 public class PvPController{
     MenuController menuController = new MenuController();
@@ -23,7 +24,7 @@ public class PvPController{
     Random random = new Random();
     private boolean turn = true;
 
-    private int n=0;
+
 
     @FXML
     public Line cross111;
@@ -55,12 +56,12 @@ public class PvPController{
     public Circle circle32;
     public Circle circle33;
 
+
     @FXML
     private MainController mainController;
 
     @FXML
     public void restart() {
-
     }
 
     @FXML
@@ -68,23 +69,20 @@ public class PvPController{
 
     }
     public void onMouseClicked(Line cross, Line cross2, Circle circle) {
-        List<Circle> list = new ArrayList<>();
-        if (menuController.ai && turn) {
-            list.add(circle11);
-            list.add(circle12);
-            list.add(circle13);
-            list.add(circle21);
-            list.add(circle22);
-            list.add(circle23);
-            list.add(circle31);
-            list.add(circle32);
-            list.add(circle33);
-            player = 2;
-            cross.setOpacity(1);
-            cross2.setOpacity(1);
+        if(menuController.ai && turn) {
+            List<Integer> list = new ArrayList<>();
+            list.add(0);
+            list.add(1);
+            list.add(2);
+            list.add(3);
+            list.add(4);
+            list.add(5);
+            list.add(6);
+            list.add(7);
+            list.add(8);
             turn = false;
         }
-        if(menuController.ai) {
+        if (menuController.ai) {
             if (player == 1) {
                 if (setterController) {
                     winner = gameLogic.verifyWhoWon();
@@ -92,20 +90,18 @@ public class PvPController{
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
-                    list.remove(circle);
+
                 } else {
                     fieldIsNotEmpty();
                 }
             }
             if (player == 2) {
-                n++;
-                winner = gameLogic.verifyWhoWon();
-                AlertHandlerWin(winner);
-                player = 1;
-                circle = list.get(random.nextInt(0,9-n));
-                System.out.println(circle);
-                circle.setOpacity(1);
-                list.remove(circle);
+                if (setterController) {
+                    winner = gameLogic.verifyWhoWon();
+                    AlertHandlerWin(winner);
+                    player = 1;
+                    circle.setOpacity(1);
+                }
             }
         } else {
             if (player == 1) {
