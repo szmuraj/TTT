@@ -23,6 +23,7 @@ public class PvPController{
     public boolean winner=false;
     Random random = new Random();
     private boolean turn = true;
+    List<Circle> list = new ArrayList<>();
 
 
 
@@ -63,23 +64,21 @@ public class PvPController{
     @FXML
     public void restart() {
     }
-
     @FXML
     public void menu() {
 
     }
     public void onMouseClicked(Line cross, Line cross2, Circle circle) {
         if(menuController.ai && turn) {
-            List<Integer> list = new ArrayList<>();
-            list.add(0);
-            list.add(1);
-            list.add(2);
-            list.add(3);
-            list.add(4);
-            list.add(5);
-            list.add(6);
-            list.add(7);
-            list.add(8);
+            list.add(circle11);
+            list.add(circle12);
+            list.add(circle13);
+            list.add(circle21);
+            list.add(circle22);
+            list.add(circle23);
+            list.add(circle31);
+            list.add(circle32);
+            list.add(circle33);
             turn = false;
         }
         if (menuController.ai) {
@@ -90,17 +89,14 @@ public class PvPController{
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
-
+                    list.remove(circle);
+                    winner = gameLogic.verifyWhoWon();
+                    player = 1;
+                    circle = list.get(random.nextInt(0, list.size()));
+                    circle.setOpacity(1);
+                    list.remove(circle);
                 } else {
                     fieldIsNotEmpty();
-                }
-            }
-            if (player == 2) {
-                if (setterController) {
-                    winner = gameLogic.verifyWhoWon();
-                    AlertHandlerWin(winner);
-                    player = 1;
-                    circle.setOpacity(1);
                 }
             }
         } else {
@@ -126,7 +122,6 @@ public class PvPController{
             }
         }
     }
-
     @FXML
     public void quit() {
         System.exit(0);
@@ -200,6 +195,7 @@ public class PvPController{
         alert.setGraphic(null);
         alert.setContentText("player "+(player==1 ? "1":"2")+" won");
         ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("restart");
+        turn = true;
         return alert;
     }
     public Alert fieldIsNotEmpty(){

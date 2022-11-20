@@ -32,6 +32,7 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ai = false;
         mainController.setScreen(pane);
     }
 
