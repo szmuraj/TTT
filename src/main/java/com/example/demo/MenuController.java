@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MenuController {
 
-    public boolean ai = true;
+    public boolean ai = false;
     private MainController mainController;
 
     @FXML

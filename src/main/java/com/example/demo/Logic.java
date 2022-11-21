@@ -35,18 +35,13 @@ public class Logic {
                 (gameBoard[0][1]==1 && gameBoard[1][1]==1 &&gameBoard[2][1]==1) ||
                 (gameBoard[0][2]==1 && gameBoard[1][2]==1 &&gameBoard[2][2]==1) ){
             return true;
-        }else if((gameBoard[0][0]==2 && gameBoard[0][1]==2 &&gameBoard[0][2]==2) ||
-                (gameBoard[1][0]==2 && gameBoard[1][1]==2 &&gameBoard[1][2]==2) ||
-                (gameBoard[2][0]==2 && gameBoard[2][1]==2 &&gameBoard[2][2]==2) ||
-                (gameBoard[0][0]==2 && gameBoard[1][1]==2 &&gameBoard[2][2]==2) ||
-                (gameBoard[0][2]==2 && gameBoard[1][1]==2 &&gameBoard[2][0]==2) ||
-                (gameBoard[0][0]==2 && gameBoard[1][0]==2 &&gameBoard[2][0]==2) ||
-                (gameBoard[0][1]==2 && gameBoard[1][1]==2 &&gameBoard[2][1]==2) ||
-                (gameBoard[0][2]==2 && gameBoard[1][2]==2 &&gameBoard[2][2]==2) ){
-            return true;
-        }else {
-            return false;
-        }
+        }else return (gameBoard[0][0] == 2 && gameBoard[0][1] == 2 && gameBoard[0][2] == 2) ||
+                (gameBoard[1][0] == 2 && gameBoard[1][1] == 2 && gameBoard[1][2] == 2) ||
+                (gameBoard[2][0] == 2 && gameBoard[2][1] == 2 && gameBoard[2][2] == 2) ||
+                (gameBoard[0][0] == 2 && gameBoard[1][1] == 2 && gameBoard[2][2] == 2) ||
+                (gameBoard[0][2] == 2 && gameBoard[1][1] == 2 && gameBoard[2][0] == 2) ||
+                (gameBoard[0][0] == 2 && gameBoard[1][0] == 2 && gameBoard[2][0] == 2) ||
+                (gameBoard[0][1] == 2 && gameBoard[1][1] == 2 && gameBoard[2][1] == 2) ||
+                (gameBoard[0][2] == 2 && gameBoard[1][2] == 2 && gameBoard[2][2] == 2);
     }
-
 }

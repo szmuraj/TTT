@@ -39,6 +39,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="375.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="225.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="75.0" layoutY="400.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="150.0" />
+
       <Circle fx:id="circle11" fill="WHITE" layoutX="150.0" layoutY="175.0" onMouseClicked="#onMouseClicked11" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
       <Circle fx:id="circle12" fill="WHITE" layoutX="300.0" layoutY="175.0" onMouseClicked="#onMouseClicked12" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />
       <Circle fx:id="circle13" fill="WHITE" layoutX="450.0" layoutY="175.0" onMouseClicked="#onMouseClicked13" opacity="0.0" radius="60.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" />

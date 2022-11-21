@@ -20,7 +20,6 @@ public class PvPController{
     public static int player=1;
 
     public boolean setterController=false;
-    public boolean winner=false;
     Random random = new Random();
     private boolean turn = true;
     List<Circle> list = new ArrayList<>();
@@ -61,13 +60,8 @@ public class PvPController{
     @FXML
     private MainController mainController;
 
-    @FXML
-    public void restart() {
-    }
-    @FXML
-    public void menu() {
 
-    }
+
     public void onMouseClicked(Line cross, Line cross2, Circle circle) {
         if(menuController.ai && turn) {
             list.add(circle11);
@@ -84,17 +78,20 @@ public class PvPController{
         if (menuController.ai) {
             if (player == 1) {
                 if (setterController) {
-                    winner = gameLogic.verifyWhoWon();
-                    AlertHandlerWin(winner);
+                    AlertHandlerWin(gameLogic.verifyWhoWon());
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
                     list.remove(circle);
-                    winner = gameLogic.verifyWhoWon();
-                    player = 1;
-                    circle = list.get(random.nextInt(0, list.size()));
-                    circle.setOpacity(1);
-                    list.remove(circle);
+                    if (!gameLogic.verifyWhoWon()) {
+                        circle = list.get(random.nextInt(0, list.size()));
+                        circle.setOpacity(1);
+                        circlePointer(circle);
+                        AlertHandlerWin(gameLogic.verifyWhoWon());
+                        player = 1;
+                        list.remove(circle);
+                    }
+
                 } else {
                     fieldIsNotEmpty();
                 }
@@ -102,8 +99,7 @@ public class PvPController{
         } else {
             if (player == 1) {
                 if (setterController) {
-                    winner = gameLogic.verifyWhoWon();
-                    AlertHandlerWin(winner);
+                    AlertHandlerWin(gameLogic.verifyWhoWon());
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
@@ -112,8 +108,7 @@ public class PvPController{
                 }
             } else if (player == 2) {
                 if (setterController) {
-                    winner = gameLogic.verifyWhoWon();
-                    AlertHandlerWin(winner);
+                    AlertHandlerWin(gameLogic.verifyWhoWon());
                     player = 1;
                     circle.setOpacity(1);
                 } else {
@@ -122,10 +117,48 @@ public class PvPController{
             }
         }
     }
+
+    private void circlePointer( Circle circle) {
+        if (circle11.equals(circle)) {
+            gameLogic.setValue(0, 0, 2);
+        } else if (circle12.equals(circle)) {
+            gameLogic.setValue(0, 1, 2);
+        } else if (circle13.equals(circle)) {
+            gameLogic.setValue(0, 2, 2);
+        } else if (circle21.equals(circle)) {
+            gameLogic.setValue(1, 0, 2);
+        } else if (circle22.equals(circle)) {
+            gameLogic.setValue(1, 1, 2);
+        } else if (circle23.equals(circle)) {
+            gameLogic.setValue(1, 2, 2);
+        } else if (circle31.equals(circle)) {
+            gameLogic.setValue(2, 0, 2);
+        } else if (circle32.equals(circle)) {
+            gameLogic.setValue(2, 1, 2);
+        } else if (circle33.equals(circle)) {
+            gameLogic.setValue(2, 2, 2);
+        }
+    }
+
+
+    @FXML
+    public void restart() {
+        gameLogic.clearBoard();
+        for (Shape shape : Arrays.asList(circle11, circle12, circle13, circle21, circle22, circle23, circle31, circle32, circle33, cross111, cross112, cross121, cross122, cross131, cross132, cross211, cross212, cross221, cross222, cross231, cross232, cross311, cross312, cross321, cross322, cross331, cross332)) {
+            shape.setOpacity(0);
+        }
+        player = 1;
+    }
+    @FXML
+    public void menu() {
+        mainController.loadMenuScreen();
+    }
     @FXML
     public void quit() {
         System.exit(0);
     }
+
+
     @FXML
     public void onMouseClicked11() {
         setterController= gameLogic.setValue(0,0,player);
@@ -177,13 +210,7 @@ public class PvPController{
             Alert alert = youWonPopUp();
             Platform.runLater(()->{
                 Optional<ButtonType> result = alert.showAndWait();
-                if(result.get()==ButtonType.OK){
-                    gameLogic.clearBoard();
-                    for (Shape shape : Arrays.asList(circle11, circle12, circle13, circle21, circle22, circle23, circle31, circle32, circle33, cross111, cross112, cross121, cross122, cross131, cross132, cross211, cross212, cross221, cross222, cross231, cross232, cross311, cross312, cross321, cross322, cross331, cross332)) {
-                        shape.setOpacity(0);
-                    }
-
-                }
+                if(result.get()==ButtonType.OK){restart();}
             });
         }
     }
@@ -196,6 +223,7 @@ public class PvPController{
         alert.setContentText("player "+(player==1 ? "1":"2")+" won");
         ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("restart");
         turn = true;
+        player = 1;
         return alert;
     }
     public Alert fieldIsNotEmpty(){
@@ -205,7 +233,6 @@ public class PvPController{
         alert.setGraphic(null);
         alert.setContentText("This field was already taken. Pick another field.");
         ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("OK");
-        Platform.runLater(()-> {Optional<ButtonType> result = alert.showAndWait();});
         return alert;
     }
 }
