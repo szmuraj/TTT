@@ -156,7 +156,8 @@ public class GameController {
     }
     @FXML
     public void menu() {
-
+    MainController mainController = new MainController();
+    mainController.loadMenuScreen();
     }
 
     @FXML
