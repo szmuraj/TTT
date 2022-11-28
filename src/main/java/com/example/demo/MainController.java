@@ -10,7 +10,6 @@ import java.io.IOException;
 public class MainController {
     @FXML
     private StackPane mainStackPane;
-
     @FXML
     public void initialize() {
         loadMenuScreen();
@@ -27,6 +26,7 @@ public class MainController {
         menuController.setMainController(this);
         setScreen(pane);
     }
+
     public void setScreen(Pane pane) {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(pane);

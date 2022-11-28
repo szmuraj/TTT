@@ -8,24 +8,25 @@ import java.io.IOException;
 
 public class MenuController {
 
-    public boolean ai = false;
+    public static boolean ai = false;
     private MainController mainController;
 
     @FXML
     public void pve() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PvP.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ai = true;
         mainController.setScreen(pane);
     }
 
     @FXML
     public void pvp() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PvP.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
