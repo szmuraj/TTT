@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameControllerTest {
+class GameController3x3Test {
 
     @Test
     void onMouseClicked11() {

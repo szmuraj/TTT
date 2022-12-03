@@ -1,10 +1,10 @@
 package com.example.demo;
 
-public class Logic {
+public class Logic3x3 {
 
     public int[][] gameBoard;
 
-    public Logic() {
+    public Logic3x3() {
         gameBoard=new int[3][3];
     }
 
@@ -12,7 +12,7 @@ public class Logic {
         this.gameBoard=new int[3][3];
     }
 
-    public boolean setValue(int y,int x, int player){
+    public boolean setValue(int y, int x, int player){
         if(gameBoard[y][x]!=0){
             return false;
         }

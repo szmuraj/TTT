@@ -2,10 +2,10 @@ package com.example.demo;
 
 import org.junit.jupiter.api.*;
 
-import static com.example.demo.GameController.*;
+import static com.example.demo.GameController3x3.*;
 
 public class GameTests {
-    Logic gameLogic = new Logic();
+    Logic3x3 gameLogic3x3 = new Logic3x3();
 
     @BeforeEach
     public void before() {
@@ -35,30 +35,30 @@ public class GameTests {
             for (int player = 1; player < 3; player++) {
                 for (int y = 0; y < 3; y++) {
                     for (int x = 0; x < 3; x++) {
-                        gameLogic.setValue(y, x, player);
+                        gameLogic3x3.setValue(y, x, player);
                     }
-                    Assertions.assertTrue(gameLogic.verifyWhoWon()); // tests for lines
-                    gameLogic.clearBoard();
+                    Assertions.assertTrue(gameLogic3x3.verifyWhoWon()); // tests for lines
+                    gameLogic3x3.clearBoard();
                 }
                 for (int x = 0; x < 3; x++) {
                     for (int y = 0; y < 3; y++) {
-                        gameLogic.setValue(y, x, player);
+                        gameLogic3x3.setValue(y, x, player);
                     }
-                    System.out.println(gameLogic.verifyWhoWon());
-                    Assertions.assertTrue(gameLogic.verifyWhoWon()); // tests for columns
-                    gameLogic.clearBoard();
+                    System.out.println(gameLogic3x3.verifyWhoWon());
+                    Assertions.assertTrue(gameLogic3x3.verifyWhoWon()); // tests for columns
+                    gameLogic3x3.clearBoard();
                 }
-                gameLogic.setValue(0,0,player);
-                gameLogic.setValue(1,1,player);
-                gameLogic.setValue(2,2,player);
-                Assertions.assertTrue(gameLogic.verifyWhoWon());     // tests for cross win
-                gameLogic.clearBoard();
+                gameLogic3x3.setValue(0,0,player);
+                gameLogic3x3.setValue(1,1,player);
+                gameLogic3x3.setValue(2,2,player);
+                Assertions.assertTrue(gameLogic3x3.verifyWhoWon());     // tests for cross win
+                gameLogic3x3.clearBoard();
 
-                gameLogic.setValue(0,2,player);
-                gameLogic.setValue(1,1,player);
-                gameLogic.setValue(2,0,player);
-                Assertions.assertTrue(gameLogic.verifyWhoWon());
-                gameLogic.clearBoard();
+                gameLogic3x3.setValue(0,2,player);
+                gameLogic3x3.setValue(1,1,player);
+                gameLogic3x3.setValue(2,0,player);
+                Assertions.assertTrue(gameLogic3x3.verifyWhoWon());
+                gameLogic3x3.clearBoard();
             }
         }
 
@@ -66,58 +66,58 @@ public class GameTests {
         void testDraw3x3() {
             int turnsX = 0;
             int turnsO = 0;
-            GameController gameController = new GameController();
-            gameController.setterController = true;
+            GameController3x3 gameController3x3 = new GameController3x3();
+            gameController3x3.setterController = true;
 
-            gameController.onMouseClicked(gameController.cross111, gameController.cross112, gameController.circle11);  //X
+            gameController3x3.onMouseClicked(gameController3x3.cross111, gameController3x3.cross112, gameController3x3.circle11);  //X
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross211, gameController.cross212, gameController.circle21);  //O
+            gameController3x3.onMouseClicked(gameController3x3.cross211, gameController3x3.cross212, gameController3x3.circle21);  //O
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross121, gameController.cross122, gameController.circle12);  //X
+            gameController3x3.onMouseClicked(gameController3x3.cross121, gameController3x3.cross122, gameController3x3.circle12);  //X
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross221, gameController.cross222, gameController.circle22);  //O
+            gameController3x3.onMouseClicked(gameController3x3.cross221, gameController3x3.cross222, gameController3x3.circle22);  //O
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross231, gameController.cross232, gameController.circle23);  //X
+            gameController3x3.onMouseClicked(gameController3x3.cross231, gameController3x3.cross232, gameController3x3.circle23);  //X
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross131, gameController.cross132, gameController.circle13);  //O
+            gameController3x3.onMouseClicked(gameController3x3.cross131, gameController3x3.cross132, gameController3x3.circle13);  //O
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross331, gameController.cross332, gameController.circle33);  //X
+            gameController3x3.onMouseClicked(gameController3x3.cross331, gameController3x3.cross332, gameController3x3.circle33);  //X
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross321, gameController.cross322, gameController.circle32);  //O
+            gameController3x3.onMouseClicked(gameController3x3.cross321, gameController3x3.cross322, gameController3x3.circle32);  //O
             if (player == 1) {
                 turnsX++;
             } else {
                 turnsO++;
             }
-            gameController.onMouseClicked(gameController.cross311, gameController.cross312, gameController.circle31);  //X
+            gameController3x3.onMouseClicked(gameController3x3.cross311, gameController3x3.cross312, gameController3x3.circle31);  //X
             if (player == 1) {
                 turnsX++;
             } else {

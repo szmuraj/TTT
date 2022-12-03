@@ -5,24 +5,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
 import javafx.stage.StageStyle;
 
 import java.util.*;
-import java.util.List;
 
-public class GameController {
-    Logic gameLogic=new Logic();
+public class GameController3x3 {
+    Logic3x3 gameLogic3x3 =new Logic3x3();
     public static int player = 1;
-
     public boolean setterController = false;
     Random random = new Random();
     private boolean turn = true;
     List<Circle> list = new ArrayList<>();
     private int draw = 0;
-
 
 
     @FXML
@@ -54,6 +52,8 @@ public class GameController {
     public Circle circle31;
     public Circle circle32;
     public Circle circle33;
+
+
     public void onMouseClicked(Line cross, Line cross2, Circle circle) {
         if (MenuController.ai) {
             if(turn) {
@@ -70,7 +70,7 @@ public class GameController {
             }
             if (player == 1) {
                 if (setterController) {
-                    AlertHandlerWin(gameLogic.verifyWhoWon());
+                    AlertHandlerWin(gameLogic3x3.verifyWhoWon());
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
@@ -79,11 +79,11 @@ public class GameController {
                     if (draw == 9) {
                         drawPopUp();
                     }
-                    if (!gameLogic.verifyWhoWon()) {
+                    if (!gameLogic3x3.verifyWhoWon()) {
                         circle = list.get(random.nextInt(0, list.size()));
                         circle.setOpacity(1);
                         circlePointer(circle);
-                        AlertHandlerWin(gameLogic.verifyWhoWon());
+                        AlertHandlerWin(gameLogic3x3.verifyWhoWon());
                         player = 1;
                         list.remove(circle);
                         draw ++;
@@ -99,7 +99,7 @@ public class GameController {
         } else {
             if (player == 1) {
                 if (setterController) {
-                    AlertHandlerWin(gameLogic.verifyWhoWon());
+                    AlertHandlerWin(gameLogic3x3.verifyWhoWon());
                     player = 2;
                     cross.setOpacity(1);
                     cross2.setOpacity(1);
@@ -112,7 +112,7 @@ public class GameController {
                 }
             } else if (player == 2) {
                 if (setterController) {
-                    AlertHandlerWin(gameLogic.verifyWhoWon());
+                    AlertHandlerWin(gameLogic3x3.verifyWhoWon());
                     player = 1;
                     circle.setOpacity(1);
                     draw++;
@@ -125,30 +125,30 @@ public class GameController {
 
     private void circlePointer( Circle circle) {
         if (circle11.equals(circle)) {
-            gameLogic.setValue(0, 0, 2);
+            gameLogic3x3.setValue(0, 0, 2);
         } else if (circle12.equals(circle)) {
-            gameLogic.setValue(0, 1, 2);
+            gameLogic3x3.setValue(0, 1, 2);
         } else if (circle13.equals(circle)) {
-            gameLogic.setValue(0, 2, 2);
+            gameLogic3x3.setValue(0, 2, 2);
         } else if (circle21.equals(circle)) {
-            gameLogic.setValue(1, 0, 2);
+            gameLogic3x3.setValue(1, 0, 2);
         } else if (circle22.equals(circle)) {
-            gameLogic.setValue(1, 1, 2);
+            gameLogic3x3.setValue(1, 1, 2);
         } else if (circle23.equals(circle)) {
-            gameLogic.setValue(1, 2, 2);
+            gameLogic3x3.setValue(1, 2, 2);
         } else if (circle31.equals(circle)) {
-            gameLogic.setValue(2, 0, 2);
+            gameLogic3x3.setValue(2, 0, 2);
         } else if (circle32.equals(circle)) {
-            gameLogic.setValue(2, 1, 2);
+            gameLogic3x3.setValue(2, 1, 2);
         } else if (circle33.equals(circle)) {
-            gameLogic.setValue(2, 2, 2);
+            gameLogic3x3.setValue(2, 2, 2);
         }
     }
 
 
     @FXML
     public void restart() {
-        gameLogic.clearBoard();
+        gameLogic3x3.clearBoard();
         for (Shape shape : Arrays.asList(circle11, circle12, circle13, circle21, circle22, circle23, circle31, circle32, circle33, cross111, cross112, cross121, cross122, cross131, cross132, cross211, cross212, cross221, cross222, cross231, cross232, cross311, cross312, cross321, cross322, cross331, cross332)) {
             shape.setOpacity(0);
         }
@@ -165,51 +165,39 @@ public class GameController {
         System.exit(0);
     }
 
+    @FXML
+    public void onMouseClickedPane(MouseEvent e) {
 
-    @FXML
-    public void onMouseClicked11() {
-        setterController= gameLogic.setValue(0,0,player);
-        onMouseClicked(cross111, cross112, circle11);
+        double x = e.getX();
+        double y = e.getY();
+        System.out.println(x + " " + y);
+
+        if(y>=100 && x>=75) {
+            int horizontally = (int) ((y - 100) / 150);
+            int perpendicularly = (int) ((x - 75) / 150);
+            setterController = gameLogic3x3.setValue(horizontally, perpendicularly, player);
+            if (horizontally == 0) {
+                mouseClickedPane(perpendicularly, cross111, cross112, circle11, cross121, cross122, circle12, cross131, cross132, circle13);
+            } else if (horizontally == 1) {
+                mouseClickedPane(perpendicularly, cross211, cross212, circle21, cross221, cross222, circle22, cross231, cross232, circle23);
+            } else if (horizontally == 2) {
+                mouseClickedPane(perpendicularly, cross311, cross312, circle31, cross321, cross322, circle32, cross331, cross332, circle33);
+            } else {
+                System.out.println("Chose place to put X");
+            }
+        }
     }
     @FXML
-    public void onMouseClicked12() {
-        setterController=gameLogic.setValue(0,1,player);
-        onMouseClicked(cross121, cross122, circle12);
-    }
-    @FXML
-    public void onMouseClicked13() {
-        setterController=gameLogic.setValue(0,2,player);
-        onMouseClicked(cross131, cross132, circle13);
-    }
-    @FXML
-    public void onMouseClicked21() {
-        setterController= gameLogic.setValue(1,0,player);
-        onMouseClicked(cross211, cross212, circle21);
-    }
-    @FXML
-    public void onMouseClicked22() {
-        setterController= gameLogic.setValue(1,1,player);
-        onMouseClicked(cross221, cross222, circle22);
-    }
-    @FXML
-    public void onMouseClicked23() {
-        setterController= gameLogic.setValue(1,2,player);
-        onMouseClicked(cross231, cross232, circle23);
-    }
-    @FXML
-    public void onMouseClicked31() {
-        setterController= gameLogic.setValue(2,0,player);
-        onMouseClicked(cross311, cross312, circle31);
-    }
-    @FXML
-    public void onMouseClicked32() {
-        setterController= gameLogic.setValue(2,1,player);
-        onMouseClicked(cross321, cross322, circle32);
-    }
-    @FXML
-    public void onMouseClicked33() {
-        setterController= gameLogic.setValue(2,2,player);
-        onMouseClicked(cross331, cross332, circle33);
+    private void mouseClickedPane(int perpendicularly, Line cross111, Line cross112, Circle circle11, Line cross121, Line cross122, Circle circle12, Line cross131, Line cross132, Circle circle13) {
+        if(perpendicularly==0) {
+            onMouseClicked(cross111, cross112, circle11);
+        } else if (perpendicularly==1) {
+            onMouseClicked(cross121, cross122, circle12);
+        } else if (perpendicularly==2) {
+            onMouseClicked(cross131, cross132, circle13);
+        } else {
+            System.out.println("Chose place to put Y");
+        }
     }
 
     public void AlertHandlerWin(boolean winnerController){

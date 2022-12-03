@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameTypeController">
+   <children>
+      <Button layoutX="305.0" layoutY="115.0" mnemonicParsing="false" onAction="#type10x10" text="10 x 10" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="321.0" layoutY="215.0" mnemonicParsing="false" onAction="#type3x3" text="3 x 3" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Text layoutX="51.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What type of game do you want to play?" textAlignment="CENTER" wrappingWidth="647.13671875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="317.0" layoutY="315.0" mnemonicParsing="false" onAction="#menu" text="Menu" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="340.0" layoutY="450.0" mnemonicParsing="false" onAction="#quit" text="Quit" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
